@@ -1,3 +1,5 @@
-echo "# My Project" > README.md
-git add README.md
-git commit -m "Initial commit"
+----
+Cấu trúc File React
+
+- File index.js -> nó sẽ import component tổng (App) -> nó sẽ render component App này ra HTML 
+- File App.js -> 
