@@ -1,0 +1,66 @@
+-------
+JSX : 
+
+- Có thể truyền giá trị thông qua {} 
+- Tên thuộc tính phỉa viết thành camelCase
+- class chuyển thành className
+- những thẻ ko có thẻ đóng thì bổ sung /
+- nó sẽ không chạy đoạn script 
+
+
+----------
+Component & Props
+
+- Component có 2 loại : functional và class
+* Class Component 
+class Welcome extends React.Component{
+    render(){
+        return (
+            <h1>Hello, {this.props.name}</h1>
+        )
+    }
+}
+
+=> Đối với class component thì việc truyền props vào thì cần có thêm this
+
+* Nên dùng functional component
+
+---
+Props: khi truyền là truyền thẳng vào trong thẻ 
+Component nó nhận props
+props ở đây là 1 cái Object chứa giá trị truyền vào component
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

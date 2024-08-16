@@ -1,5 +1,0 @@
-----
-Cấu trúc File React
-
-- File index.js -> nó sẽ import component tổng (App) -> nó sẽ render component App này ra HTML 
-- File App.js -> 
