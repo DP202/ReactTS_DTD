@@ -1,4 +1,4 @@
-import React from "react";
+import React from 'react'
 
 // Funcion Component
 
@@ -9,9 +9,9 @@ import React from "react";
 // Class Component
 class Welcome extends React.Component {
   render() {
-    console.log(this.props);
-    return <h1>Hello, {this.props.name}</h1>;
+    console.log(this.props)
+    return <h1>Hello, {this.props.name}</h1>
   }
 }
 
-export default Welcome;
+export default Welcome

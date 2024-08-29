@@ -4,11 +4,22 @@ import "./index.css";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import Welcome from "./component & props/Welcome";
+import Clock from "./component & props/Clock";
+import CustomInput from "./component & props/CustomInput";
+import Layout from "./component & props/Layout";
+import BareButton from "./event/BareButton";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
   <React.StrictMode>
-    <Welcome name="Dong Pham" />
+    {/* <Welcome name='Dong Pham' /> */}
+    {/* <Clock /> */}
+    {/* <Layout>
+      <h1>Hello</h1>
+      <CustomInput type="password" value="100" autoFocus onChange={() => {}} />
+    </Layout> */}
+
+    <BareButton />
   </React.StrictMode>,
 );
 

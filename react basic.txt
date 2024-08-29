@@ -31,15 +31,100 @@ Component nó nhận props
 props ở đây là 1 cái Object chứa giá trị truyền vào component
 
 
+-----------
+State và lifecycle trong class component
 
+- Nếu muốn dùng state trong component thì phải tạo constructor(props){...} 
+-> nhớ gọi super(props) để hoàn tất gọi constructor của class React.Component
+- Nếu dùng constructor thì phỉa dùng super Bạn không cần tạo constructor nếu bạn không khởi tạo state
+- Gán object cho this.state . Lưu ý this.state chỉ có thể là object hoặc null
 
+---
+- Trong React sử dụng state hoặc thay đổi state bằng setState thì component nó sẽ reRender lại 
 
+* Lưu ý : nếu muốn cập nhật lại cái state này thì phải gọi this.setState 
+- Khi gọi setState thì ta phải truyền vào 1 state mới nếu object có nhiều level thì state mới cũng nên có những object mới
 
+----------
+Constructor trong class component 
 
+- Nếu bạn không khởi tạo state hoặc không bind các method khác thì bạn không cần dùng constructor
+- Không gọi this.setState trong constructor
 
+-------
+mounted" đề cập đến giai đoạn mà một component đã được đưa vào DOM và hiển thị trên giao diện người dùng. 
+Đây là một phần của vòng đời component (component lifecycle) trong React.
+=> mounted là đưa 1 component vào sử dụng
+-------
+ComponentdidMount 
+- Được chạy ngay khi component mounted
 
+-------
+componentDidUpdate : gọi ngay lập tức khi component của bạn re-render và cập nhật lại DOM thật . 
+ Phương thức này không chạy ở lần render đầu tiên
+- Nó chạy khi : nhận 1 props mới , set lại state (setState) , forceUpdate
 
+--------------
+Props và PropTypes
 
+- Muốn lấy hết tất cả các props được truyền vào Component thì dùng {...props}
+- Ví dụ :
+ <CustomInput type="text" value="100" autoFocus onChange={() => {}} /> 
+1 component CustomInput thì chỉ muốn loại các props kia mà không lấy props type thì =>
+- Functional Component 
+
+----------
+Kiểm tra dữ liệu đối với Props
+- Dùng packet prop type
+- PropTypes khác TypeScript là TS nó chỉ chạy khi code thôi , app run thì nó không chạy
+- Trong setState thì nhận vào 1 callback -> giá trị state mới nhất
+---------
+Xử lý Event
+- CamelCase
+- Với JSX truyền Function như mợt function handle 
+
+* Cách 1:
+import React from "react";
+
+function BareButton() {
+  // Cách 1 :
+  const handleClick = (value) => {
+    console.log(value);
+  };
+  return (
+    <div>
+      <button onClick={() => handleClick("Add")}>Add</button>
+      <button onClick={() => handleClick("Delete")}>Delete</button>
+      <button onClick={() => handleClick("Edit")}>Edit</button>
+    </div>
+  );
+}
+
+export default BareButton;
+
+// Cách 2 : nâng cao -> Kỹ thuật Currying
+
+  // Cách 2 :
+  //   const handleClick = (value) => () => {
+  //     console.log(value);
+  //   };
+  // Tương đương với
+  const handleClick = (value) => {
+    return () => {
+      console.log(value);
+    };
+  };
+  return (
+    <div>
+      {/*Cách 2 :  */}
+      <button onClick={handleClick("Add")}>Add</button>
+      <button onClick={handleClick("Delete")}>Delete</button>
+      <button onClick={handleClick("Edit")}>Edit</button>
+    </div>
+  );
+}
+
+=> Vì khi gọi function handleClick trong onClick thì nó sẻ trả về 1 function mới -> Nên function nó chưa được gọi hết hoàn toàn 
 
 
 
