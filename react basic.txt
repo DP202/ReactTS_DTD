@@ -126,21 +126,61 @@ export default BareButton;
 
 => Vì khi gọi function handleClick trong onClick thì nó sẻ trả về 1 function mới -> Nên function nó chưa được gọi hết hoàn toàn 
 
+--------------
+Khi render có điều kiện trong react thì dùng :
+
+1. Toán tử && -> thường được sử dụng để render 1 phần tử có điều kiện là true
+2. Toán tử ? :
+3. Sử dụng if ... else
+
+===================
+React có thể gọi setState nhiều lần trong 1 lần cập nhật để tăng hiệu suất
 
 
+------------------
+List & Key
+
+- Trường hợp dùng index cho key là những trường hợp không có id và list tỉnh(là list để hiển thị ko có thêm bớt dữ liệu)
+- Nếu có id thì dùng id  
+
+---------
+Form
+- Trong form có thuộc tính là onSubmit -> khi sử dụng là nó load trang web => dùng prventDefault()
+- onChange trong form là cách để bạn theo dõi các thay đổi từ người dùng và cập nhật các state hoặc thực hiện các hành động
+khác dựa trên dữ liệu mà người dùng nhập
+- Ref :
+	+ truy cập trực tiếp vào phần tử DOM (input,focus,animation,etc)
+	+ giữ giá trị tham chiếu không cần render lại (useRef có thể giữ lại giá trị mà bạn không muốn component render lại)
+- Dùng useRef đối với functionalComponent 
+- Dùng createRef đối với classComponent 
+- Trong React muốn sử dụng giá trị mặc định cho thẻ thì dùng defaultValue 
+VD để giá trị mặc định cho thẻ HTML :  <input type='text'value='dong'/>  => giá trị mặc định của input này là dong
+VD để giá trị mặc định trong React :   <input type='text' ref={inputRef} defaultValue='abc' />
+
+* defaultValue thì nó sẽ không thay đổi giá trị ban đầu
+* Dùng value thì có onChange
+
+---
+- Tương tự đối với checkbox thì defaultChecked  
+- select và textarea thì dùng defaultValue
+
+----------------
+- Trong Reactjs thì input file nó luôn là 1 cái uncontrolled component bởi vì giá trị của nó chỉ xét bởi người dùng, chúng ta ko thể lập trình 
+và xét giá trị cho nó được
+
+----------------
+
+- Những component mà nó có sự tương tác lẫn nhau khi mà nó tương tác dữ liệu thì ta đưa cái state của chúng lên cái component cha gần nhất.
+State lúc này nó sẽ được chia sẽ với những component con
+=> Kỹ thuật này gọi là "Lifting State Up " hay được gọi là đưa state lên trên
 
 
-
-
-
-
-
-
-
-
-
-
-
+-------
+Fragments : khi return nhiều Element
+- C1 : Trong <div ></div> thay bằng <React.Fragments>
+- C2 : import Fragments vào trên đầu trong React
+=> Fragments nó nhận được key
+- Cú pháp rút gọn <> </>
 
 
 
